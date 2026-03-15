@@ -323,21 +323,57 @@
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <h3>Inquiry Form</h3>
-                    <form id="inquiryForm" onsubmit="event.preventDefault(); alert('Message Sent Successfully!');">
-                        <div class="input-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="tel" placeholder="Phone Number" required>
-                        </div>
-                        <div class="input-group">
-                            <select required>
-                                <option value="" disabled selected>Select Class</option>
-                                <option value="1-5">Class 1 to 5</option>
-                                <option value="6-8">Class 6 to 8</option>
-                                <option value="9-10">Class 9 & 10</option>
+             <div class="contact-form">
+    <h3>Inquiry Form</h3>
+
+    <form id="inquiryForm">
+        <div class="input-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+
+        <div class="input-group">
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+        </div>
+
+        <div class="input-group">
+            <select id="class" required>
+                <option value="" disabled selected>Select Class</option>
+                <option value="1-5">Class 1 to 5</option>
+                <option value="6-8">Class 6 to 8</option>
+                <option value="9-10">Class 9 & 10</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <textarea id="message" rows="4" placeholder="Any specific subjects or requirements?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Send Inquiry</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("inquiryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let studentClass = document.getElementById("class").value;
+    let message = document.getElementById("message").value;
+
+    let whatsappNumber = "9779743628432"; // Replace with your WhatsApp number (country code included)
+
+    let whatsappMessage = `Hello, I want tuition details.%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Class: ${studentClass}%0A
+Message: ${message}`;
+
+    let whatsappURL = `https://wa.me/9779743628432?text=Hello%20I%20want%20more%20information`;
+
+    window.open(whatsappURL, "_blank");
+});
+</script>
                             </select>
                         </div>
                         <div class="input-group">
