@@ -323,7 +323,7 @@
                     </div>
                 </div>
 
-             <div class="contact-form">
+    <div class="contact-form">
     <h3>Inquiry Form</h3>
 
     <form id="inquiryForm">
@@ -361,17 +361,18 @@ document.getElementById("inquiryForm").addEventListener("submit", function(e) {
     let studentClass = document.getElementById("class").value;
     let message = document.getElementById("message").value;
 
-    let whatsappNumber = "9779743628432"; // Replace with your WhatsApp number (country code included)
+    // Replace with your WhatsApp number
+    let whatsappNumber = "9779743628432";
 
-    let whatsappMessage = `Hello, I want tuition details.%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Class: ${studentClass}%0A
+    let text = `Hello, I want tuition details.
+Name: ${name}
+Phone: ${phone}
+Class: ${studentClass}
 Message: ${message}`;
 
-    let whatsappURL = `https://wa.me/9779743628432?text=Hello%20I%20want%20more%20information`;
+    let whatsappURL = "https://wa.me/9779743628432" + whatsappNumber + "?text=" + encodeURIComponent(text);
 
-    window.open(whatsappURL, "_blank");
+    window.location.href = whatsappURL;
 });
 </script>
 <!-- Footer -->
